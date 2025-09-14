@@ -213,7 +213,7 @@
             const location = encodeURIComponent('Sestri Levante, GE, Italia');
             // Format: YYYYMMDDTHHMMSSZ (UTC) or YYYYMMDD (all day)
             const start = '20260601';
-            const end = '20260601';
+            const end = '20260602';  // Per eventi di tutto il giorno, la data di fine deve essere il giorno successivo
             const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}&location=${location}`;
             window.open(url, '_blank');
         }
