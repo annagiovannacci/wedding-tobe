@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Save the Date - Anna & Andrea</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #d0f4f7 0%, #e6f7e6 100%);
@@ -13,7 +16,6 @@
             padding: 18px 0;
             min-height: 100vh;
             margin: 0;
-            box-sizing: border-box;
             overflow-x: hidden;
         }
         .container {
@@ -21,10 +23,10 @@
             border-radius: 14px;
             box-shadow: 0 2px 8px rgba(80, 180, 180, 0.08);
             display: inline-block;
-            padding: 22px 3vw;
+            padding: 22px 30px;
             border: 1.5px solid #b2e0e6;
             max-width: 420px;
-            min-width: 0;
+            width: 90%;
             margin: 18px auto 0 auto;
         }
         h1 {
@@ -45,19 +47,23 @@
             align-items: center;
             flex-wrap: wrap;
             gap: 10px;
+            width: 100%;
         }
         button {
             background: linear-gradient(90deg, #a8e6cf 0%, #b2e0e6 100%);
             color: #355c4a;
             border: none;
-            padding: 8px 10px;
+            padding: 10px 16px;
             border-radius: 7px;
             font-size: 0.98em;
             cursor: pointer;
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(80, 180, 180, 0.10);
-            transition: background 0.2s;
+            transition: all 0.2s;
             margin: 0;
+            white-space: nowrap;
+            flex: 1;
+            min-width: 185px;
         }
         button:hover {
             background: linear-gradient(90deg, #b2e0e6 0%, #a8e6cf 100%);
@@ -69,37 +75,85 @@
         .emoji-large {
             font-size: 1.5em;
         }
-        @media (max-width: 600px) {
+        @media (min-width: 601px) {
             .container {
-                padding: 12px 1vw;
-                margin: 8px auto 0 auto;
-                width: 99vw;
-                max-width: 99vw;
+                padding: 30px 40px;
             }
             h1 {
-                font-size: 1.05em;
+                font-size: 1.8em;
             }
             .date {
-                font-size: 0.98em;
+                font-size: 1.4em;
             }
             .emoji-large {
-                font-size: 1.1em;
+                font-size: 1.8em;
             }
             button {
-                font-size: 0.93em;
-                padding: 8px 2vw;
+                padding: 14px 20px;
+                font-size: 1.1em;
+            }
+            .add-calendar {
+                max-width: 450px;
+                margin: 24px auto 0 auto;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            body {
+                padding: 10px 0;
+            }
+            .container {
+                padding: 20px 15px;
+                margin: 0 auto;
+                width: 94%;
+                max-width: 94%;
+            }
+            h1 {
+                font-size: 1.2em;
+                margin-top: 5px;
+            }
+            p {
+                margin: 10px 0;
+                font-size: 0.9em;
+            }
+            .date {
+                font-size: 1.1em;
+                margin: 12px 0 10px 0;
+            }
+            .emoji-large {
+                font-size: 1.2em;
+            }
+            button {
+                font-size: 0.9em;
+                padding: 10px 0;
                 width: 100%;
-                box-sizing: border-box;
                 margin: 0;
             }
             .add-calendar {
                 flex-direction: column;
-                align-items: stretch;
-                gap: 8px;
+                align-items: center;
+                gap: 10px;
                 width: 100%;
-                max-width: 340px;
-                margin-left: auto;
-                margin-right: auto;
+                max-width: 280px;
+                margin: 15px auto 0 auto;
+            }
+            button[style*="margin-left"] {
+                margin-left: 0 !important;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .container {
+                padding: 15px 10px;
+            }
+            h1 {
+                font-size: 1.1em;
+            }
+            .date {
+                font-size: 1em;
+            }
+            button {
+                font-size: 0.85em;
             }
         }
     </style>
@@ -116,10 +170,10 @@
             <span class="emoji">💖</span>
         </p>
         <div class="add-calendar">
-            <button onclick="addToGoogleCalendar()">Aggiungi al Google Calendar <span class="emoji">📅</span></button>
-            <button style="margin-left: 12px;" onclick="addToAppleCalendar()">Aggiungi ad Apple Calendar <span class="emoji">🍏</span></button>
+            <button onclick="addToGoogleCalendar()">Google Calendar <span class="emoji">📅</span></button>
+            <button onclick="addToAppleCalendar()">Apple Calendar <span class="emoji">🍏</span></button>
         </div>
-        <div style="margin-top: 32px; font-size: 0.98em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 14px 18px; display: inline-block; max-width: 420px;">
+        <div style="margin-top: 25px; font-size: 0.85em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 12px 15px; display: inline-block; width: 100%; max-width: 100%;">
             <strong>Nota:</strong> Questo è un <em>Save the Date</em>, un preavviso per segnare la data nelle vostre agende. L'invito ufficiale con richiesta di conferma presenza (<em>RSVP</em>) arriverà più avanti.
         </div>
     </div>
