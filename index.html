@@ -25,7 +25,7 @@
             display: inline-block;
             padding: 22px 30px;
             border: 1.5px solid #b2e0e6;
-            max-width: 420px;
+            max-width: 600px;
             width: 90%;
             margin: 18px auto 0 auto;
         }
@@ -78,6 +78,7 @@
         @media (min-width: 601px) {
             .container {
                 padding: 30px 40px;
+                width: 85%;
             }
             h1 {
                 font-size: 1.8em;
@@ -93,7 +94,7 @@
                 font-size: 1.1em;
             }
             .add-calendar {
-                max-width: 450px;
+                max-width: 520px;
                 margin: 24px auto 0 auto;
             }
         }
@@ -101,6 +102,10 @@
         @media (max-width: 600px) {
             body {
                 padding: 10px 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
             }
             .container {
                 padding: 20px 15px;
@@ -127,7 +132,7 @@
                 font-size: 0.9em;
                 padding: 10px 0;
                 width: 100%;
-                margin: 0;
+                margin: 0 auto;
             }
             .add-calendar {
                 flex-direction: column;
@@ -136,6 +141,7 @@
                 width: 100%;
                 max-width: 280px;
                 margin: 15px auto 0 auto;
+                justify-content: center;
             }
             button[style*="margin-left"] {
                 margin-left: 0 !important;
@@ -173,7 +179,7 @@
             <button onclick="addToGoogleCalendar()">Google Calendar <span class="emoji">📅</span></button>
             <button onclick="addToAppleCalendar()">Apple Calendar <span class="emoji">🍏</span></button>
         </div>
-        <div style="margin-top: 25px; font-size: 0.85em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 12px 15px; display: inline-block; width: 100%; max-width: 100%;">
+        <div style="margin-top: 25px; font-size: 0.85em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 12px 15px; display: inline-block; width: 100%; max-width: 520px;">
             <strong>Nota:</strong> Questo è un <em>Save the Date</em>, un preavviso per segnare la data nelle vostre agende. L'invito ufficiale con richiesta di conferma presenza (<em>RSVP</em>) arriverà più avanti.
         </div>
     </div>
