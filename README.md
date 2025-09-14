@@ -1,1 +1,1 @@
-test
+Static page for hosting our save the date

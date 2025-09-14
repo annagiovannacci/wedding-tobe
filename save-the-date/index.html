@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save the Date - Anna & Andrea</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #d0f4f7 0%, #e6f7e6 100%);
+            color: #355c4a;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background: #f7fcffcc;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(80, 180, 180, 0.10);
+            display: inline-block;
+            padding: 48px 70px;
+            border: 2px solid #b2e0e6;
+        }
+        h1 {
+            color: #5bb3b3;
+            font-size: 2.5em;
+            margin-bottom: 0.2em;
+        }
+        .date {
+            font-size: 2.2em;
+            margin: 24px 0 18px 0;
+            color: #6ec6a6;
+            font-weight: bold;
+        }
+        .add-calendar {
+            margin-top: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            background: linear-gradient(90deg, #a8e6cf 0%, #b2e0e6 100%);
+            color: #355c4a;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 7px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(80, 180, 180, 0.10);
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #b2e0e6 0%, #a8e6cf 100%);
+        }
+        .emoji {
+            font-size: 1.2em;
+            margin: 0 0.2em;
+        }
+        .emoji-large {
+            font-size: 2.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div class="emoji emoji-large">💍💐</div>
+        <h1>Save the Date! <span class="emoji">💒</span></h1>
+        <div class="date">1 Giugno 2026</div>
+        <p>
+            Siamo felici di annunciare il nostro matrimonio!<br>
+            <span class="emoji">👰‍♀️🤵‍♂️</span><br>
+            Per favore, segnate la data e unitevi a noi per il nostro giorno speciale.<br>
+            <span class="emoji">💖</span>
+        </p>
+        <div class="add-calendar">
+            <button onclick="addToGoogleCalendar()">Aggiungi al Google Calendar <span class="emoji">📅</span></button>
+            <button style="margin-left: 12px;" onclick="addToAppleCalendar()">Aggiungi ad Apple Calendar <span class="emoji">🍏</span></button>
+        </div>
+        <div style="margin-top: 32px; font-size: 0.98em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 14px 18px; display: inline-block; max-width: 420px;">
+            <strong>Nota:</strong> Questo è un <em>Save the Date</em>, un preavviso per segnare la data nelle vostre agende. L'invito ufficiale con richiesta di conferma presenza (<em>RSVP</em>) arriverà più avanti.
+        </div>
+    </div>
+    <script>
+        function addToGoogleCalendar() {
+            // Customize these details
+            const title = encodeURIComponent('Matrimonio Anna e Andrea');
+            const details = encodeURIComponent('Unisciti a noi per celebrare il nostro matrimonio!');
+            const location = encodeURIComponent('Sestri Levante, GE, Italia');
+            // Format: YYYYMMDDTHHMMSSZ (UTC) or YYYYMMDD (all day)
+            const start = '20260601';
+            const end = '20260601';
+            const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&details=${details}&location=${location}`;
+            window.open(url, '_blank');
+        }
+
+        function addToAppleCalendar() {
+            // .ics file content
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'BEGIN:VEVENT',
+                'SUMMARY:Matrimonio Anna e Andrea',
+                'DESCRIPTION:Unisciti a noi per celebrare il nostro matrimonio!',
+                'LOCATION:Sestri Levante, GE, Italia',
+                'DTSTART;VALUE=DATE:20260601',
+                'DTEND;VALUE=DATE:20260602',
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+            const blob = new Blob([icsContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'wedding-save-the-date.ics';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
