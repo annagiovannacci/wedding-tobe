@@ -8,15 +8,20 @@
         * {
             box-sizing: border-box;
         }
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             background: linear-gradient(135deg, #d0f4f7 0%, #e6f7e6 100%);
             color: #355c4a;
             text-align: center;
-            padding: 18px 0;
-            min-height: 100vh;
+            padding: 0;
             margin: 0;
-            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .container {
             background: #f7fcffcc;
@@ -27,7 +32,9 @@
             border: 1.5px solid #b2e0e6;
             max-width: 600px;
             width: 90%;
-            margin: 18px auto 0 auto;
+            margin: 0 auto;
+            max-height: 100vh;
+            overflow-y: auto;
         }
         h1 {
             color: #5bb3b3;
@@ -79,6 +86,7 @@
             .container {
                 padding: 30px 40px;
                 width: 85%;
+                max-height: 90vh;
             }
             h1 {
                 font-size: 1.8em;
@@ -100,30 +108,25 @@
         }
         
         @media (max-width: 600px) {
-            body {
-                padding: 10px 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                min-height: 100vh;
-            }
             .container {
-                padding: 20px 15px;
+                padding: 15px 12px;
                 margin: 0 auto;
                 width: 94%;
                 max-width: 94%;
+                max-height: 95vh;
             }
             h1 {
                 font-size: 1.2em;
                 margin-top: 5px;
+                margin-bottom: 0;
             }
             p {
-                margin: 10px 0;
-                font-size: 0.9em;
+                margin: 8px 0;
+                font-size: 0.85em;
             }
             .date {
                 font-size: 1.1em;
-                margin: 12px 0 10px 0;
+                margin: 10px 0 8px 0;
             }
             .emoji-large {
                 font-size: 1.2em;
@@ -137,10 +140,10 @@
             .add-calendar {
                 flex-direction: column;
                 align-items: center;
-                gap: 10px;
+                gap: 8px;
                 width: 100%;
                 max-width: 280px;
-                margin: 15px auto 0 auto;
+                margin: 12px auto 0 auto;
                 justify-content: center;
             }
             button[style*="margin-left"] {
@@ -179,7 +182,7 @@
             <button onclick="addToGoogleCalendar()">Google Calendar <span class="emoji">📅</span></button>
             <button onclick="addToAppleCalendar()">Apple Calendar <span class="emoji">🍏</span></button>
         </div>
-        <div style="margin-top: 25px; font-size: 0.85em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 12px 15px; display: inline-block; width: 100%; max-width: 520px;">
+        <div style="margin-top: 15px; font-size: 0.8em; color: #4b6e5a; background: #e6f7e6; border-radius: 8px; padding: 10px 12px; display: inline-block; width: 100%; max-width: 520px;">
             <strong>Nota:</strong> Questo è un <em>Save the Date</em>, un preavviso per segnare la data nelle vostre agende. L'invito ufficiale con richiesta di conferma presenza (<em>RSVP</em>) arriverà più avanti.
         </div>
     </div>
